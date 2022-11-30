@@ -21,7 +21,7 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  var onlysecondsSpan = clock.querySelector('.')
+  var onlysecondsSpan = clock.querySelector('.seconds')
   var onlysecondsshow = document.getElementById('onlysecondsshow');
   var daysshow = document.getElementById('daysshow');
   var hoursshow = document.getElementById('hoursshow');
@@ -35,6 +35,7 @@ function initializeClock(id, endtime) {
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    onlysecondsSpan.innerHTML = ('0' + t.onlyseconds).slice(-2);
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
@@ -58,7 +59,12 @@ function initializeClock(id, endtime) {
       daysSpan.style.display = "none";
     }
     if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0 && t.seconds <= 0) {
-      secondsshow.style.dispaly = "none";
+      secondsshow.style.display = "none";
+      daysSpan.style.display = "none";
+    }
+    
+    if (t.onlyseconds <=0){
+      onlysecondsshow.style.display = "none";
       daysSpan.style.display = "none";
     }
 
