@@ -1,11 +1,13 @@
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
+  var just_seconds = Math.floor(t / 1000);
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
   var days = Math.floor(t / (1000 * 60 * 60 * 24));
   return {
     'total': t,
+    'just_seconds': just_seconds,
     'days': days,
     'hours': hours,
     'minutes': minutes,
@@ -19,6 +21,8 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
+  var onlysecondsSpan = clock.querySelector('.')
+  var onlysecondsshow = document.getElementById('onlysecondsshow');
   var daysshow = document.getElementById('daysshow');
   var hoursshow = document.getElementById('hoursshow');
   var minutesshow = document.getElementById('minutesshow');
