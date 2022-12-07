@@ -21,7 +21,7 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  var onlysecondsSpan = clock.querySelector('.only_seconds_class')
+  var onlysecondsSpan = clock.querySelector('.only_seconds_class');
   var onlysecondsshow = document.getElementById('only_seconds_show');
   var daysshow = document.getElementById('daysshow');
   var hoursshow = document.getElementById('hoursshow');
