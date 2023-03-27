@@ -1,13 +1,11 @@
 function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
-  var just_seconds = Math.floor(t / 1000);
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
   var days = Math.floor(t / (1000 * 60 * 60 * 24));
   return {
     'total': t,
-    'just_seconds': just_seconds,
     'days': days,
     'hours': hours,
     'minutes': minutes,
@@ -21,8 +19,6 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
-  var onlysecondsSpan = clock.querySelector('.only_seconds_class');
-  var onlysecondsshow = document.getElementById('only_seconds_show');
   var daysshow = document.getElementById('daysshow');
   var hoursshow = document.getElementById('hoursshow');
   var minutesshow = document.getElementById('minutesshow');
@@ -35,7 +31,6 @@ function initializeClock(id, endtime) {
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-    onlysecondsSpan.innerHTML = ('0' + t.onlyseconds).slice(-2);
 
     if (t.total <= 0) {
       clearInterval(timeinterval);
@@ -59,7 +54,7 @@ function initializeClock(id, endtime) {
       daysSpan.style.display = "none";
     }
     if (t.days <= 0 && t.hours <= 0 && t.minutes <= 0 && t.seconds <= 0) {
-      secondsshow.style.display = "none";
+      secondsshow.style.dispaly = "none";
       daysSpan.style.display = "none";
     }
 
@@ -69,5 +64,5 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date("Dec 14, 2023 17:40:00");
+var deadline = new Date("Dec 14, 2023 12:00:00");
 initializeClock('clockdiv', deadline);
